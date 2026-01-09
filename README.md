@@ -74,3 +74,5 @@ Distributed under the **MIT License**. This means you are free to use, modify, a
 ---
 
 ***Created and maintained by Alex Studios***
+
+[Information](https://alexgaming.is-a.dev/projects/info/dotnet-webtoapp-x86-template.html)
