@@ -29,12 +29,35 @@ Navigate to the `MainWindow.cs` file and replace the placeholder URL with your t
 // Locate this line in MainWindow.cs
 webView.CoreWebView2.Navigate("[https://alexgaming.netlify.app](https://alexgaming.netlify.app)");
 ```
-
-### 4. Build & Deploy
+### 4. Build & Deploy (Visual Studio)
 - Set your build configuration in Visual Studio to **Release**.
 - Set the platform to **x86**.
 - Build the solution to generate your standalone executable.
 
+---
+
+## 📦 Publishing via CLI
+If you prefer using the command line or want to automate your build process, use the following .NET CLI commands:
+
+### Restore & Build
+```bash
+dotnet restore --arch x86
+dotnet build -c Release -r win-x86
+```
+
+### Publish Standalone Executable
+This command generates an optimized, self-contained executable:
+
+```bash
+dotnet publish -c Release -r win-x86 --self-contained true -p:PublishReadyToRun=true
+```
+### Generate WiX Installer (CLI)
+Navigate to your Setup directory and run the WiX compiler and linker:
+
+```bash
+candle.exe Product.wxs
+light.exe Product.wixobj -o WebToApp_Setup.msi
+```
 ---
 
 ## 🛠 Technical Details
@@ -45,7 +68,9 @@ webView.CoreWebView2.Navigate("[https://alexgaming.netlify.app](https://alexgami
 
 ---
 
-## ⚖️ License
+### ⚖️ License
 Distributed under the **MIT License**. This means you are free to use, modify, and distribute this template for private and commercial projects.
 
-**Created and maintained by Alex Studios**
+---
+
+***Created and maintained by Alex Studios***
